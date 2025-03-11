@@ -4,7 +4,11 @@ def get_date_of_birth(id_number: str) -> str:
     STEP 2: Extract the date of birth from the ID number and return it as a string
     return format: DD/MM/YY:
     """
-    pass
+    DD = id_number[4:6]
+    MM = id_number[2:4]
+    YY = id_number[0:2]
+    return DD / MM /YY
+
 
 # Question 2
 def get_gender(id_number: str) -> str:
@@ -15,7 +19,13 @@ def get_gender(id_number: str) -> str:
     Formula: 1 if the ID number's 7th to 10th digit is less than 5000, the person is
     female and if it is greater than 4999, the person is male.
     """
-    pass
+    if id_number[7:11] < 5000:
+        return "female"
+    elif id_number > 4999:
+        return "male"
+    
+    
+    
 
 # Question 3
     """
@@ -26,6 +36,14 @@ def get_gender(id_number: str) -> str:
 
     TODO: define a function called fizzbuzz and implement the fucntionality above.
     """
+    def fizzbuzz(n):
+        for number in range(1 ,n):
+            if number % 3==0 and number % 5 == 0:
+                print("FizzBuzz")
+            elif number % 3 == 0:
+                print("Fizz")
+            else:
+                print("Buzz")
 
 
 # Question 4
@@ -34,7 +52,12 @@ def find_even_numbers(numbers):
     in a tuple
 
     Hint: use modulus (%)"""
-    pass
+    even_numbers = []
+    for number in numbers:
+        if number % 2 == 0:
+            even_numbers += number
+    return tuple(number)
+
 
 # Question 5
 def find_odd_numbers(numbers):
@@ -42,9 +65,17 @@ def find_odd_numbers(numbers):
     in a tuple
 
     Hint: use modulus (%)"""
-    pass
+    odd_numbers = []
+    for number in numbers:
+        if number % 2 != 0:
+            odd_numbers += number
+    return tuple(odd_numbers)
+#
 
-# Question 6
+
+
+
+# Question 6  
 def return_list_stats(numbers):
     """Given the list 'numbers', use the relevant functions to return a
     dictionary of statics for the list. This dictionary must have
@@ -62,7 +93,8 @@ def return_list_stats(numbers):
         number_of_odd_numbers : the total number of even numbers in the list
              'numbers'
     """
-    pass
+    dict_of_stats = {}
+
 
 # Question 7
 def draw_triangle_reversed(height: int) -> None:
@@ -77,7 +109,13 @@ def draw_triangle_reversed(height: int) -> None:
         None: Prints the inverted triangle pattern directly to console.
 
     """
-    pass
+    num = int(input("raw number: "))
+    for i in range(height,0,-1):
+        print(end="")
+    for j in range(0,height-1):
+        print("*",end=" ")
+    print()
+
 
 # Question 8
 def draw_triangle_prime(height: int) -> None:
@@ -129,5 +167,27 @@ def pascal_triangle(n):
      *     1   3   3   1
      *   1   4   6   4   1
      * 1   5  10   10  5   1
+#     """
+    
+
+
+def draw_triangle_reversed(height: int) -> None:
     """
-    pass
+    Draw an inverted number triangle where each row begins with its position number,
+    with the top row having the most repeated numbers and each row below having one fewer repetition.
+
+    Parameters:
+        height (int): The height of the triangle. Must be a positive integer.
+
+    Returns:
+        None: Prints the inverted triangle pattern directly to console.
+
+    """
+    
+    for i in range(height,0,-1):
+        print(end=" ")
+    for j in range(0,height-1):
+        print("*",end=" ")
+    print()
+
+draw_triangle_reversed(4)
